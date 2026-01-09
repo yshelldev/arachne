@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Struct Init -->
+    <script>
+        class $CREATOR {
+            constructor(node = document) {
+                node.getElementById
+            }
+        }
+
+        const $ISLAND = {};
+        const $ISLAND_INITDATA = (id, data = {}) => {
+            if ($ISLAND[id]) { $ISLAND[id].data = data; }
+            else { $ISLAND[id] = { data: data }; }
+        }
+        const $ISLAND_INITNODE = (id, node) => {
+            if ($ISLAND[id]) { $ISLAND[id].node = node; }
+            else { $ISLAND[id] = { node }; }
+        }
+
+        const $TEMPLATE = {};
+        const $TEMPLATE_INITDATA = (id, data = {}) => {
+            if ($TEMPLATE[id]) { $TEMPLATE[id].data = data; }
+            else { $TEMPLATE[id] = { data: data }; }
+        }
+        const $TEMPLATE_INITNODE = (id, node) => {
+            if ($TEMPLATE[id]) { $TEMPLATE[id].node = node; }
+            else { $TEMPLATE[id] = { node: node }; }
+        }
+    </script>
+
+
+
+    <div id="container" with-array="_card"></div>
+    <script>
+        $ISLAND_INITDATA("container", [
+            {
+                "_card": {
+                    "_card-head": {
+                        _: {
+                            attribute: { // Attributes
+                                varient: "blue"
+                            },
+                            style: { // styles
+
+                            }
+                        },
+                    },
+                    "_position": {
+
+                    },
+                }
+            }
+        ])
+    </script>
+
+    <!-- Templates -->
+
+    <template id="_position">
+        <li id="_position-name"></li>
+    </template>
+
+    <template id="_card">
+        <div id="_card-head"></div>
+        <ul id="_card-position" with-object="_position"></ul>
+    </template>
+    <script>
+
+    </script>
+
+
+    <script>
+        Array.from(document.getElementsByTagName("template"))
+            .forEach((t) => { $TEMPLATE_INITNODE(t.id, t); });
+        Object.entries($ISLAND)
+            .forEach(([k]) => {
+                const node = document.getElementById(k);
+                $ISLAND_INITNODE(k, node);
+                node
+            });
+
+
+    </script>
+</body>
+
+</html>

@@ -1,4 +1,4 @@
-Arachnate experiments with frontend state by prioritizing performance over TypeScript type safety.
+Arachne is an experimental frontend state manager which prioritize performance over type safety.
 
 ## Design Choice
 Uses plain objects and manual event dispatches instead of typed proxies, cutting overhead for faster execution. State updates stay explicit and lightweight.
